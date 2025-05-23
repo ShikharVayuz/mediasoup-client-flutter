@@ -17,11 +17,11 @@ class Rtp {
     this.encoding,
   });
 
-  Rtp.fromMap(Map data) :
-    payload = data['payload'],
-    codec = data['codec'],
-    rate = data['rate'],
-    encoding = data['encoding'];
+  Rtp.fromMap(Map data)
+      : payload = data['payload'],
+        codec = data['codec'],
+        rate = data['rate'],
+        encoding = data['encoding'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -42,9 +42,9 @@ class Fmtp {
     required this.config,
   });
 
-  Fmtp.fromMap(Map data) :
-    payload = data['payload'],
-    config = data['config'];
+  Fmtp.fromMap(Map data)
+      : payload = data['payload'],
+        config = data['config'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -58,11 +58,14 @@ class Connection {
   final int version;
   final String ip;
 
-  Connection({required this.version, required this.ip,});
+  Connection({
+    required this.version,
+    required this.ip,
+  });
 
-  Connection.fromMap(Map data) :
-    version = data['version'],
-    ip = data['ip'];
+  Connection.fromMap(Map data)
+      : version = data['version'],
+        ip = data['ip'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -85,11 +88,11 @@ class Rtcp {
     required this.ipVer,
   });
 
-  Rtcp.fromMap(Map data) :
-    port = data['port'],
-    netType = data['netType'],
-    ipVer = data['ipVer'],
-    address = data['address'];
+  Rtcp.fromMap(Map data)
+      : port = data['port'],
+        netType = data['netType'],
+        ipVer = data['ipVer'],
+        address = data['address'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -110,9 +113,9 @@ class Fingerprint {
     required this.hash,
   });
 
-  Fingerprint.fromMap(Map data) :
-    type = data['type'],
-    hash = data['hash'];
+  Fingerprint.fromMap(Map data)
+      : type = data['type'],
+        hash = data['hash'];
 
   Map<String, String> toMap() {
     return {
@@ -137,24 +140,19 @@ class Ext {
     this.encryptUri,
   });
 
-  Ext.fromMap(Map data) :
-    value = data['value'],
-    direction = data['direction'],
-    uri = data['uri'],
-    config = data['config'],
-    encryptUri = data['encrypt-uri'];
-
+  Ext.fromMap(Map data)
+      : value = data['value'],
+        direction = data['direction'],
+        uri = data['uri'],
+        config = data['config'],
+        encryptUri = data['encrypt-uri'];
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> result = {
-      if (value != null)
-      'value': value,
-      if (direction != null)
-      'direction': direction,
-      if (uri != null)
-      'uri': uri,
-      if (config != null)
-      'config': config,
+      if (value != null) 'value': value,
+      if (direction != null) 'direction': direction,
+      if (uri != null) 'uri': uri,
+      if (config != null) 'config': config,
     };
     if (encryptUri != null && encryptUri!.isNotEmpty) {
       result['encrypt-uri'] = encryptUri;
@@ -173,11 +171,10 @@ class RtcpFb {
     required this.type,
     this.subtype = '',
   });
-  RtcpFb.fromMap(Map data) :
-    payload = data['payload'],
-    type = data['type'],
-    subtype = data['subtype'] ?? '';
-
+  RtcpFb.fromMap(Map data)
+      : payload = data['payload'],
+        type = data['type'],
+        subtype = data['subtype'] ?? '';
 
   Map<String, dynamic> toMap() {
     return {
@@ -199,10 +196,10 @@ class Ssrc {
     required this.value,
   });
 
-  Ssrc.fromMap(Map data) :
-    id = data['id'],
-    attribute = data['attribute'],
-    value = data['value'];
+  Ssrc.fromMap(Map data)
+      : id = data['id'],
+        attribute = data['attribute'],
+        value = data['value'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -222,10 +219,9 @@ class SsrcGroup {
     required this.ssrcs,
   });
 
-  SsrcGroup.fromMap(Map data) :
-    semantics = data['semantics'],
-    ssrcs = data['ssrcs'];
-
+  SsrcGroup.fromMap(Map data)
+      : semantics = data['semantics'],
+        ssrcs = data['ssrcs'];
 
   Map<String, String> toMap() {
     return {
@@ -246,11 +242,10 @@ class Sctpmap {
     required this.maxMessageSize,
   });
 
-  Sctpmap.fromMap(Map data) :
-    app = data['app'],
-    sctpmanNumber = data['sctpmanNumber'],
-    maxMessageSize = data['maxMessageSize'];
-
+  Sctpmap.fromMap(Map data)
+      : app = data['app'],
+        sctpmanNumber = data['sctpmanNumber'],
+        maxMessageSize = data['maxMessageSize'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -272,10 +267,10 @@ class Rid {
     this.params,
   });
 
-  Rid.fromMap(Map data) :
-    id = data['id'],
-    direction = data['direction'],
-    params = data['params'];
+  Rid.fromMap(Map data)
+      : id = data['id'],
+        direction = data['direction'],
+        params = data['params'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -293,17 +288,17 @@ class Simulcast {
   final String? list2;
 
   Simulcast({
-     this.dir1,
-     this.list1,
-     this.dir2,
-     this.list2,
+    this.dir1,
+    this.list1,
+    this.dir2,
+    this.list2,
   });
 
-  Simulcast.fromMap(Map data) :
-    dir1 = data['dir1'],
-    list1 = data['list1'],
-    dir2 = data['dir2'],
-    list2 = data['list2'];
+  Simulcast.fromMap(Map data)
+      : dir1 = data['dir1'],
+        list1 = data['list1'],
+        dir2 = data['dir2'],
+        list2 = data['list2'];
 
   Map<String, String?> toMap() {
     return {
@@ -320,8 +315,7 @@ class Simulcast_03 {
 
   Simulcast_03({required this.value});
 
-  Simulcast_03.fromMap(Map data) :
-    value = data['value'];
+  Simulcast_03.fromMap(Map data) : value = data['value'];
 
   Map<String, String> toMap() {
     return {
@@ -339,9 +333,9 @@ class RtcpFbTrrInt {
     required this.value,
   });
 
-  RtcpFbTrrInt.fromMap(Map data) :
-    payload = data['payload'],
-    value = data['value'];
+  RtcpFbTrrInt.fromMap(Map data)
+      : payload = data['payload'],
+        value = data['value'];
 
   Map<String, int> toMap() {
     return {
@@ -364,12 +358,11 @@ class Crypto {
     this.sessionConfig,
   });
 
-  Crypto.fromMap(Map data) :
-    id = data['id'],
-    suite = data['suite'],
-    config = data['config'],
-    sessionConfig = data['sessionConfig'];
-
+  Crypto.fromMap(Map data)
+      : id = data['id'],
+        suite = data['suite'],
+        config = data['config'],
+        sessionConfig = data['sessionConfig'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -390,10 +383,9 @@ class Bandwidth {
     required this.limit,
   });
 
-  Bandwidth.fromMap(Map data) :
-    type = data['type'],
-    limit = data['limit'];
-
+  Bandwidth.fromMap(Map data)
+      : type = data['type'],
+        limit = data['limit'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -418,13 +410,12 @@ class Imageattrs {
     required this.attrs2,
   });
 
-  Imageattrs.fromMap(Map data) :
-    pt = data['pt'],
-    dir1 = data['dir1'],
-    attrs1 = data['attrs1'],
-    dir2 = data['dir2'],
-    attrs2 = data['attrs2'];
-
+  Imageattrs.fromMap(Map data)
+      : pt = data['pt'],
+        dir1 = data['dir1'],
+        attrs1 = data['attrs1'],
+        dir2 = data['dir2'],
+        attrs2 = data['attrs2'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -452,12 +443,12 @@ class SourceFilter {
     required this.srcList,
   });
 
-  SourceFilter.fromMap(Map data) :
-    this.filterMode = data['filterMode'],
-    this.netType = data['netType'],
-    this.addressTypes = data['addressTypes'],
-    this.destAddress = data['destAddress'],
-    this.srcList = data['srcList'];
+  SourceFilter.fromMap(Map data)
+      : this.filterMode = data['filterMode'],
+        this.netType = data['netType'],
+        this.addressTypes = data['addressTypes'],
+        this.destAddress = data['destAddress'],
+        this.srcList = data['srcList'];
 
   Map<String, String> toMap() {
     return {
@@ -566,7 +557,8 @@ class MediaObject {
 
   MediaObject.fromMap(Map data) {
     if (data['candidates'] != null) {
-      candidates = List<IceCandidate>.from((data['candidates'] ?? []).map((candidate) => IceCandidate.fromMap(candidate)).toList());
+      candidates = List<IceCandidate>.from(
+          (data['candidates'] ?? []).map((candidate) => IceCandidate.fromMap(candidate)).toList());
     }
     if (data['iceUfrag'] != null) {
       iceUfrag = data['iceUfrag'];
@@ -629,7 +621,8 @@ class MediaObject {
       ssrcs = List<Ssrc>.from((data['ssrcs'] ?? []).map((ssrc) => Ssrc.fromMap(ssrc)).toList());
     }
     if (data['ssrcGroups'] != null) {
-      ssrcGroups = List<SsrcGroup>.from((data['ssrcGroups'] ?? []).map((ssrcGroup) => SsrcGroup.fromMap(ssrcGroup)).toList());
+      ssrcGroups = List<SsrcGroup>.from(
+          (data['ssrcGroups'] ?? []).map((ssrcGroup) => SsrcGroup.fromMap(ssrcGroup)).toList());
     }
     if (data['simulcast'] != null) {
       simulcast = Simulcast.fromMap(data['simulcast']);
@@ -662,7 +655,9 @@ class MediaObject {
       fingerprint = Fingerprint.fromMap(data['fingerprint']);
     }
     if (data['rtcpFbTrrInt'] != null) {
-      rtcpFbTrrInt = List<RtcpFbTrrInt>.from((data['rtcpFbTrrInt'] ?? []).map((rFTI) => RtcpFbTrrInt.fromMap(data['rtcpFbTrrInt'])).toList());
+      rtcpFbTrrInt = List<RtcpFbTrrInt>.from((data['rtcpFbTrrInt'] ?? [])
+          .map((rFTI) => RtcpFbTrrInt.fromMap(data['rtcpFbTrrInt']))
+          .toList());
     }
     if (data['crypto'] != null) {
       crypto = List<Crypto>.from((data['crypto'] ?? []).map((c) => Crypto.fromMap(c)).toList());
@@ -680,7 +675,8 @@ class MediaObject {
       label = data['label'];
     }
     if (data['bandwidth'] != null) {
-      bandwidth = List<Bandwidth>.from((data['bandwidth'] ?? []).map((b) => Bandwidth.fromMap(b)).toList());
+      bandwidth =
+          List<Bandwidth>.from((data['bandwidth'] ?? []).map((b) => Bandwidth.fromMap(b)).toList());
     }
     if (data['framerate'] != null) {
       framerate = data['framerate'];
@@ -689,7 +685,8 @@ class MediaObject {
       bundleOnly = data['bundleOnly'];
     }
     if (data['imageattrs'] != null) {
-      imageattrs = List<Imageattrs>.from((data['imageattrs'] ?? []).map((ia) => Imageattrs.fromMap(ia)).toList());
+      imageattrs = List<Imageattrs>.from(
+          (data['imageattrs'] ?? []).map((ia) => Imageattrs.fromMap(ia)).toList());
     }
     if (data['sourceFilter'] != null) {
       sourceFilter = SourceFilter.fromMap(data['sourceFilter']);
@@ -868,9 +865,8 @@ abstract class MediaSection {
     IceParameters iceParameters = IceParameters.fromMap(data['iceParameters']);
     List<IceCandidate> iceCandidates = [];
     if (data['iceCandidates'] != null) {
-      iceCandidates.addAll(data['iceCandidates']
-          .map((iceC) => IceCandidate.fromMap(iceC))
-          .toList());
+      iceCandidates
+          .addAll(data['iceCandidates'].map((iceC) => IceCandidate.fromMap(iceC)).toList());
     }
 
     _planB = data['planB'] == true;
@@ -962,8 +958,7 @@ class AnswerMediaSection extends MediaSection {
       case 'audio':
       case 'video':
         {
-          _mediaObject.direction =
-              RtpHeaderDirectionExtension.fromString('recvonly');
+          _mediaObject.direction = RtpHeaderDirectionExtension.fromString('recvonly');
           _mediaObject.rtp = <Rtp>[];
           _mediaObject.rtcpFb = <RtcpFb>[];
           _mediaObject.fmtp = <Fmtp>[];
@@ -982,9 +977,8 @@ class AnswerMediaSection extends MediaSection {
             _mediaObject.rtp?.add(rtp);
 
             // CodecParameters codecParameters =
-                // CodecParameters.copy(codec.parameters);
-            Map<dynamic, dynamic> codecParameters =
-                Map<dynamic, dynamic>.of(codec.parameters);
+            // CodecParameters.copy(codec.parameters);
+            Map<dynamic, dynamic> codecParameters = Map<dynamic, dynamic>.of(codec.parameters);
 
             if (codecOptions != null) {
               final int? opusStereo = codecOptions.opusStereo;
@@ -993,15 +987,12 @@ class AnswerMediaSection extends MediaSection {
               final int? opusMaxPlaybackRate = codecOptions.opusMaxPlaybackRate;
               final int? opusMaxAverageBitrate = codecOptions.opusMaxAverageBitrate;
               final int? opusPtime = codecOptions.opusPtime;
-              final int? videoGoogleStartBitrate =
-                  codecOptions.videoGoogleStartBitrate;
+              final int? videoGoogleStartBitrate = codecOptions.videoGoogleStartBitrate;
               final int? videoGoogleMaxBitrate = codecOptions.videoGoogleMaxBitrate;
               final int? videoGoogleMinBitrate = codecOptions.videoGoogleMinBitrate;
 
-              final RtpCodecParameters? offerCodec = offerRtpParameters?.codecs
-                  .firstWhere(
-                      (RtpCodecParameters c) =>
-                          c.payloadType == codec.payloadType,
+              final RtpCodecParameters? offerCodec = offerRtpParameters?.codecs.firstWhere(
+                (RtpCodecParameters c) => c.payloadType == codec.payloadType,
                 orElse: () => null as RtpCodecParameters,
               );
 
@@ -1009,24 +1000,24 @@ class AnswerMediaSection extends MediaSection {
                 case 'audio/opus':
                   {
                     // if (opusStereo != null) {
-                      // offerCodec.parameters['sprop-stereo'] = opusStereo ? 1 : 0;
-                      offerCodec!.parameters['sprop-stereo'] = opusStereo != null ? opusStereo : 0;
-                      // codecParameters['stereo'] = opusStereo ? 1 : 0;
-                      codecParameters['stereo'] = opusStereo != null ? opusStereo : 0;
+                    // offerCodec.parameters['sprop-stereo'] = opusStereo ? 1 : 0;
+                    offerCodec!.parameters['sprop-stereo'] = opusStereo != null ? opusStereo : 0;
+                    // codecParameters['stereo'] = opusStereo ? 1 : 0;
+                    codecParameters['stereo'] = opusStereo != null ? opusStereo : 0;
                     // }
 
                     // if (opusFec != null) {
-                      // offerCodec.parameters['useinbandfec'] = opusFec ? 1 : 0;
-                      offerCodec.parameters['useinbandfec'] = opusFec != null ? opusFec : 0;
-                      // codecParameters['useinbandfec'] = opusFec ? 1 : 0;
-                      codecParameters['useinbandfec'] = opusFec != null ? opusFec : 0;
+                    // offerCodec.parameters['useinbandfec'] = opusFec ? 1 : 0;
+                    offerCodec.parameters['useinbandfec'] = opusFec != null ? opusFec : 0;
+                    // codecParameters['useinbandfec'] = opusFec ? 1 : 0;
+                    codecParameters['useinbandfec'] = opusFec != null ? opusFec : 0;
                     // }
 
                     // if (opusDtx != null) {
-                      // offerCodec.parameters['usedtx'] = opusDtx ? 1 : 0;
-                      offerCodec.parameters['usedtx'] = opusDtx != null ? opusDtx : 0;
-                      // codecParameters['usedtx'] = opusDtx ? 1 : 0;
-                      codecParameters['usedtx'] = opusDtx != null ? opusDtx : 0;
+                    // offerCodec.parameters['usedtx'] = opusDtx ? 1 : 0;
+                    offerCodec.parameters['usedtx'] = opusDtx != null ? opusDtx : 0;
+                    // codecParameters['usedtx'] = opusDtx ? 1 : 0;
+                    codecParameters['usedtx'] = opusDtx != null ? opusDtx : 0;
                     // }
 
                     if (opusMaxPlaybackRate != null) {
@@ -1051,8 +1042,7 @@ class AnswerMediaSection extends MediaSection {
                 case 'video/h265':
                   {
                     if (videoGoogleStartBitrate != null) {
-                      codecParameters['x-google-start-bitrate'] =
-                          videoGoogleStartBitrate;
+                      codecParameters['x-google-start-bitrate'] = videoGoogleStartBitrate;
                     }
 
                     if (videoGoogleMaxBitrate != null) {
@@ -1100,11 +1090,10 @@ class AnswerMediaSection extends MediaSection {
 
           _mediaObject.ext = <Ext>[];
 
-          for (RtpHeaderExtensionParameters ext
-              in answerRtpParameters?.headerExtensions ?? []) {
+          for (RtpHeaderExtensionParameters ext in answerRtpParameters?.headerExtensions ?? []) {
             // Don't add a header extension if not present in the offer.
-            bool found = (offerMediaObject.ext ?? [])
-                .any((Ext localExt) => localExt.uri == ext.uri);
+            bool found =
+                (offerMediaObject.ext ?? []).any((Ext localExt) => localExt.uri == ext.uri);
 
             if (!found) {
               continue;
@@ -1117,8 +1106,7 @@ class AnswerMediaSection extends MediaSection {
           }
 
           // Allow both 1 byte and 2 bytes length header extensions.
-          if (extmapAllowMixed == true &&
-              offerMediaObject.extmapAllowMixed == true) {
+          if (extmapAllowMixed == true && offerMediaObject.extmapAllowMixed == true) {
             _mediaObject.extmapAllowMixed = true;
           }
 
@@ -1144,8 +1132,7 @@ class AnswerMediaSection extends MediaSection {
           } else if (offerMediaObject.simulcast_03 != null) {
             // Simulcast (draft version 03).
             _mediaObject.simulcast_03 = Simulcast_03(
-              value: offerMediaObject.simulcast_03!.value
-                  .replaceAll(RegExp(r'/send/g'), 'recv'),
+              value: offerMediaObject.simulcast_03!.value.replaceAll(RegExp(r'/send/g'), 'recv'),
             );
 
             _mediaObject.rids = <Rid>[];
@@ -1264,8 +1251,7 @@ class OfferMediaSection extends MediaSection {
       case 'audio':
       case 'video':
         {
-          _mediaObject.direction =
-              RtpHeaderDirectionExtension.fromString('sendonly');
+          _mediaObject.direction = RtpHeaderDirectionExtension.fromString('sendonly');
           _mediaObject.rtp = <Rtp>[];
           _mediaObject.rtcpFb = <RtcpFb>[];
           _mediaObject.fmtp = <Fmtp>[];
@@ -1281,7 +1267,7 @@ class OfferMediaSection extends MediaSection {
               rate: codec.clockRate,
             );
 
-            if (codec.channels  != null && codec.channels! > 1) {
+            if (codec.channels != null && codec.channels! > 1) {
               rtp.encoding = codec.channels;
             }
 
@@ -1305,10 +1291,8 @@ class OfferMediaSection extends MediaSection {
             }
 
             for (RtcpFeedback fb in codec.rtcpFeedback) {
-              _mediaObject.rtcpFb!.add(RtcpFb(
-                  payload: codec.payloadType,
-                  type: fb.type,
-                  subtype: fb.parameter));
+              _mediaObject.rtcpFb!
+                  .add(RtcpFb(payload: codec.payloadType, type: fb.type, subtype: fb.parameter));
             }
           }
 
@@ -1319,8 +1303,7 @@ class OfferMediaSection extends MediaSection {
 
           _mediaObject.ext = <Ext>[];
 
-          for (RtpHeaderExtensionParameters ext
-              in offerRtpParameters?.headerExtensions ?? []) {
+          for (RtpHeaderExtensionParameters ext in offerRtpParameters?.headerExtensions ?? []) {
             _mediaObject.ext!.add(Ext(
               uri: ext.uri,
               value: ext.id,
@@ -1332,19 +1315,18 @@ class OfferMediaSection extends MediaSection {
 
           RtpEncodingParameters encoding = offerRtpParameters!.encodings.first;
           int ssrc = encoding.ssrc!;
-          int? rtxSsrc = (encoding.rtx != null && encoding.rtx!.ssrc != null)
-              ? encoding.rtx?.ssrc
-              : null;
+          int? rtxSsrc =
+              (encoding.rtx != null && encoding.rtx!.ssrc != null) ? encoding.rtx?.ssrc : null;
 
           _mediaObject.ssrcs = <Ssrc>[];
           _mediaObject.ssrcGroups = [];
 
           if (offerRtpParameters.rtcp?.cname != null &&
-              offerRtpParameters.rtcp!.cname.isNotEmpty) {
+              (offerRtpParameters.rtcp?.cname?.isNotEmpty ?? false)) {
             _mediaObject.ssrcs!.add(Ssrc(
               id: ssrc,
               attribute: 'cname',
-              value: offerRtpParameters.rtcp!.cname,
+              value: offerRtpParameters.rtcp?.cname ?? '',
             ));
           }
 
@@ -1358,11 +1340,11 @@ class OfferMediaSection extends MediaSection {
 
           if (rtxSsrc != null) {
             if (offerRtpParameters.rtcp?.cname != null &&
-                offerRtpParameters.rtcp!.cname.isNotEmpty) {
+                (offerRtpParameters.rtcp?.cname?.isNotEmpty ?? false)) {
               _mediaObject.ssrcs!.add(Ssrc(
                 id: rtxSsrc,
                 attribute: 'cname',
-                value: offerRtpParameters.rtcp!.cname,
+                value: (offerRtpParameters.rtcp?.cname ?? ''),
               ));
             }
 
@@ -1420,15 +1402,13 @@ class OfferMediaSection extends MediaSection {
   }) {
     RtpEncodingParameters encoding = offerRtpParameters.encodings.first;
     int ssrc = encoding.ssrc!;
-    int? rtxSsrc = (encoding.rtx != null && encoding.rtx!.ssrc != null)
-        ? encoding.rtx!.ssrc
-        : null;
+    int? rtxSsrc = (encoding.rtx != null && encoding.rtx!.ssrc != null) ? encoding.rtx!.ssrc : null;
 
     if (offerRtpParameters.rtcp?.cname != null) {
       _mediaObject.ssrcs!.add(Ssrc(
         id: ssrc,
         attribute: 'cname',
-        value: offerRtpParameters.rtcp!.cname,
+        value: offerRtpParameters.rtcp?.cname ?? '',
       ));
     }
 
@@ -1440,11 +1420,11 @@ class OfferMediaSection extends MediaSection {
 
     if (rtxSsrc != null) {
       if (offerRtpParameters.rtcp?.cname != null &&
-          offerRtpParameters.rtcp!.cname.isNotEmpty) {
+          (offerRtpParameters.rtcp?.cname?.isNotEmpty ?? false)) {
         _mediaObject.ssrcs!.add(Ssrc(
           id: rtxSsrc,
           attribute: 'cname',
-          value: offerRtpParameters.rtcp!.cname,
+          value: offerRtpParameters.rtcp?.cname ?? '',
         ));
       }
 
@@ -1467,13 +1447,10 @@ class OfferMediaSection extends MediaSection {
   }) {
     RtpEncodingParameters encoding = offerRtpParameters.encodings.first;
     int ssrc = encoding.ssrc!;
-    int? rtxSsrc = (encoding.rtx != null && encoding.rtx?.ssrc != null)
-        ? encoding.rtx!.ssrc
-        : null;
+    int? rtxSsrc = (encoding.rtx != null && encoding.rtx?.ssrc != null) ? encoding.rtx!.ssrc : null;
 
-    _mediaObject.ssrcs = _mediaObject.ssrcs!
-        .where((Ssrc s) => s.id != ssrc && s.id != rtxSsrc)
-        .toList();
+    _mediaObject.ssrcs =
+        _mediaObject.ssrcs!.where((Ssrc s) => s.id != ssrc && s.id != rtxSsrc).toList();
 
     if (rtxSsrc != null) {
       _mediaObject.ssrcGroups = _mediaObject.ssrcGroups!
@@ -1485,8 +1462,7 @@ class OfferMediaSection extends MediaSection {
 
 String getCodecName(RtpCodecParameters codec) {
   RegExp? mimeTypeRegex = RegExp(r"^(audio|video)/(.+)", caseSensitive: true);
-  Iterable<RegExpMatch> mimeTypeMatch =
-      mimeTypeRegex.allMatches(codec.mimeType);
+  Iterable<RegExpMatch> mimeTypeMatch = mimeTypeRegex.allMatches(codec.mimeType);
 
   if (mimeTypeMatch == null) {
     throw ('invalid codec.mimeType');
