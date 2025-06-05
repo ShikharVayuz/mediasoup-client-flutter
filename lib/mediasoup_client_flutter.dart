@@ -10,4 +10,4 @@ export 'package:mediasoup_client_flutter/src/rtp_parameters.dart';
 export 'package:mediasoup_client_flutter/src/sctp_parameters.dart';
 export 'package:mediasoup_client_flutter/src/scalability_modes.dart';
 export 'package:mediasoup_client_flutter/src/common/index.dart';
-export 'package:flutter_webrtc/flutter_webrtc.dart';
+export 'package:flutter_webrtc_plus/flutter_webrtc_plus.dart';

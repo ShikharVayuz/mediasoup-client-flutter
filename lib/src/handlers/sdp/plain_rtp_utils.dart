@@ -1,4 +1,4 @@
-import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:flutter_webrtc_plus/flutter_webrtc_plus.dart';
 import 'package:mediasoup_client_flutter/src/rtp_parameters.dart';
 import 'package:mediasoup_client_flutter/src/sdp_object.dart';
 import 'package:mediasoup_client_flutter/src/transport.dart';

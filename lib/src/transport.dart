@@ -1,4 +1,4 @@
-import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:flutter_webrtc_plus/flutter_webrtc_plus.dart';
 import 'package:mediasoup_client_flutter/src/consumer.dart';
 import 'package:mediasoup_client_flutter/src/data_consumer.dart';
 import 'package:mediasoup_client_flutter/src/data_producer.dart';
@@ -1097,7 +1097,8 @@ class Transport extends EnhancedEventEmitter {
       throw ('not a sending Transport');
     } else if (_maxSctpMessageSize == null) {
       throw ('SCTP not enabled by remote Transport');
-    } if (listeners('connect').isEmpty && _connectionState == 'new') {
+    }
+    if (listeners('connect').isEmpty && _connectionState == 'new') {
       throw ('no "connect" listener set into this transport');
     } else if (listeners('producedata').isEmpty) {
       throw ('no "producedata" listener set into this transport');

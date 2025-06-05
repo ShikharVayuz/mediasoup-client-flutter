@@ -1,5 +1,5 @@
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:flutter_webrtc_plus/flutter_webrtc_plus.dart';
 
 import 'package:mediasoup_client_flutter/src/sctp_parameters.dart';
 import 'package:mediasoup_client_flutter/src/common/enhanced_event_emitter.dart';
@@ -107,7 +107,9 @@ class DataProducer extends EnhancedEventEmitter {
 
     if (closed) throw 'closed';
 
-    dataChannel.send(data is String ? RTCDataChannelMessage(data) : RTCDataChannelMessage.fromBinary(data));
+    dataChannel.send(data is String
+        ? RTCDataChannelMessage(data)
+        : RTCDataChannelMessage.fromBinary(data));
   }
 
   void _handleDataChannel() {

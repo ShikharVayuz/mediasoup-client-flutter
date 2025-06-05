@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:flutter_webrtc_plus/flutter_webrtc_plus.dart';
 
 import 'package:mediasoup_client_flutter/src/sctp_parameters.dart';
 import 'package:mediasoup_client_flutter/src/common/enhanced_event_emitter.dart';
@@ -30,18 +30,25 @@ Logger _logger = Logger('DataConsumer');
 class DataConsumer extends EnhancedEventEmitter {
   /// Id.
   final String id;
+
   /// Associated DataProducer id.
   final String dataProducerId;
+
   /// The underlying RCTDataChannel instance.
   final RTCDataChannel dataChannel;
+
   /// Clsoed flag.
   bool closed;
+
   /// SCTP stream parameters.
   final SctpStreamParameters sctpStreamParameters;
+
   /// App custom data.
   final Map<String, dynamic> appData;
+
   /// Observer instance.
   final EnhancedEventEmitter observer;
+
   /// Peer id.
   final String? peerId;
 
@@ -51,20 +58,21 @@ class DataConsumer extends EnhancedEventEmitter {
   /// @emits close
   /// @emits message - (message: any)
   /// @emits @close
-  DataConsumer({
-    required this.id,
-    required this.dataProducerId,
-    required this.dataChannel,
-    required this.sctpStreamParameters,
-    this.appData = const <String, dynamic>{},
-    this.closed = false,
-    this.peerId
-  }) : observer = EnhancedEventEmitter(),
+  DataConsumer(
+      {required this.id,
+      required this.dataProducerId,
+      required this.dataChannel,
+      required this.sctpStreamParameters,
+      this.appData = const <String, dynamic>{},
+      this.closed = false,
+      this.peerId})
+      : observer = EnhancedEventEmitter(),
         super() {
     _logger.debug('constructor()');
 
     _handleDataChannel();
   }
+
   /// DataChannel readyState.
   RTCDataChannelState? get readyState => dataChannel.state;
 
